@@ -40,6 +40,18 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-md">
+        <div class="form-group">
+            <label for="title">Action Title 1</label>
+            <input type="text" class="form-control" id="icon" placeholder="Enter Action Title 1..." @bind="actionTitle1" />
+		</div>
+        <div class="form-group">
+            <label for="title">Action Title 2</label>
+            <input type="text" class="form-control" id="icon" placeholder="Enter Action Title 2..." @bind="actionTitle2" />
+		</div>
+	</div>
+</div>
+<div class="row">
     <div class="col-auto mr-auto"></div>
     <div class="col-auto">
         <button type="button" class="btn btn-light" @onclick="RequestPermission">Request Permission</button>
@@ -53,6 +65,8 @@
     private string title = "My Dummy Title";
     private string body = "Lorem ipsum dolor sit ...";
     private string icon = "images/github.png";
+    private string actionTitle1 = "Action1";
+    private string actionTitle2 = "Action2";
 
     protected override async Task OnInitializedAsync()
     {
@@ -61,11 +75,18 @@
 
     private async Task CreateNotifcationAsync()
     {
+        var actions = new NotificationAction[]
+        {
+            new NotificationAction { Action = "act1", Title = actionTitle1 },
+            new NotificationAction { Action = "act2", Title = actionTitle2 },
+        };
+
         var options = new NotificationOptions
         {
             Body = body,
             Icon = icon,
-            Renotify = true // By default a notification is not overwritten, so there can only be one.
+            Renotify = true, // By default a notification is not overwritten, so there can only be one.
+            Actions = actions
         };
 
         await NotificationService.CreateAsync(title, options);

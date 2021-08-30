@@ -12,6 +12,7 @@ export function isSupported() {
     return false;
 }
 
-export function create(title, options) {
-    return new Notification(title, options);
+export async function create(title, options) {
+    const registration = await navigator.serviceWorker.getRegistration();
+    registration.showNotification(title, options);
 }
