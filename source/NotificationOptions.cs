@@ -17,6 +17,12 @@ namespace Append.Blazor.Notifications
         /// </summary>
         public string Lang { get; set; } = "en";
         /// <summary>
+        /// An array of <see cref="NotificationAction"/>s representing the actions available to the user when the notification is presented.
+        /// These are options the user can choose among in order to act on the action within the context of the notification itself.
+        /// The action's name is sent to the service worker notification handler to let it know the action was selected by the user.
+        /// </summary>
+        public NotificationAction[] Actions { get; set; }
+        /// <summary>
         /// a <see cref="string"/> containing the URL of the image used to represent the notification when there is not enough space to display the notification itself.
         /// </summary>
         public string Badge { get; set; }
