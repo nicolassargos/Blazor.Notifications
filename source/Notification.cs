@@ -17,7 +17,6 @@ namespace Append.Blazor.Notifications
         /// A <see cref="DateTime"/> representing the time, in milliseconds since 00:00:00 UTC on 1 January 1970, of the event for which the notification was created.
         /// </summary>
         public DateTime? TimeStamp { get; private set; } = DateTime.UtcNow;
-
         /// <summary>
         /// The direction in which to display the notification. It defaults to auto, which just adopts the browser's language setting behavior, but you can override that behaviour by setting values of ltr and rtl (although most browsers seem to ignore these settings.)
         /// </summary>
@@ -26,6 +25,12 @@ namespace Append.Blazor.Notifications
         /// The notification's language, as specified using a DOMString representing a BCP 47 language tag. See the Sitepoint ISO 2 letter language codes page for a simple reference.
         /// </summary>
         public string Lang { get; private set; }
+        /// <summary>
+        /// An array of <see cref="NotificationAction"/>s representing the actions available to the user when the notification is presented.
+        /// These are options the user can choose among in order to act on the action within the context of the notification itself.
+        /// The action's name is sent to the service worker notification handler to let it know the action was selected by the user.
+        /// </summary>
+        public NotificationAction[] Actions { get; private set; }
         /// <summary>
         /// a <see cref="string"/> containing the URL of the image used to represent the notification when there is not enough space to display the notification itself.
         /// </summary>
@@ -88,6 +93,7 @@ namespace Append.Blazor.Notifications
             TimeStamp = options.TimeStamp;
             Dir = options.Dir;
             Lang = options.Lang;
+            Actions = options.Actions;
             Badge = options.Badge;
             Body = options.Body; ;
             Tag = options.Tag;
