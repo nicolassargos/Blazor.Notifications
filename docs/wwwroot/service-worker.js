@@ -6,19 +6,23 @@
 
 //        console.log("On notification close: ", event.notification.tag);
 
-//        const promiseChain = clients.openWindow('https://www.wowhead.com/diablo-4/guide/classes/barbarian/legendary-aspects');
+//        const promiseChain = clients.openWindow('wxhatever');
 //        event.waitUntil(promiseChain);
 //    }
 //);
 
 
-self.addEventListener('notificationclick', (event) => {
-    const clickedNotification = event.notification;
+self.addEventListener(
+    'notificationclick',
+    (event) => {
+        const clickedNotification = event.notification;
 
-    // Do something as the result of the notification click
-    const promiseChain = clients.openWindow('https://www.wowhead.com/diablo-4/guide/classes/barbarian/legendary-aspects');
-    event.waitUntil(promiseChain);
+        const redirectionUri = event.notification.data.redirectionUri;
 
-    clickedNotification.close();
+        // create a promiseChain that will be executed asynchronously
+        const promiseChain = clients.openWindow(redirectionUri);
+        event.waitUntil(promiseChain);
 
-});
+        clickedNotification.close();
+    }
+);

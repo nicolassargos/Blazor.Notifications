@@ -28,6 +28,7 @@ namespace Append.Blazor.Notifications
         /// <param name="options"></param>
         /// <returns></returns>
         ValueTask CreateAsync(string title, NotificationOptions options);
+
         /// <summary>
         /// Creates a Notifcation with the supplied parameters.
         /// </summary>

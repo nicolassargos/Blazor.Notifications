@@ -11,7 +11,7 @@ namespace Append.Blazor.Notifications
         public PermissionType PermissionStatus { get; private set; }
         public NotificationService(IJSRuntime jsRuntime)
         {
-            _moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/Append.Blazor.Notifications/scripts.js").AsTask());
+            _moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>("import", "./_content/Append.Blazor.Notifications/notifications.js").AsTask());
         }
 
         /// <inheritdoc/>
@@ -40,7 +40,7 @@ namespace Append.Blazor.Notifications
         public async ValueTask CreateAsync(string title, NotificationOptions options)
         {
             var module = await _moduleTask.Value;
-            await module.InvokeVoidAsync("create", title, options);
+            await module.InvokeVoidAsync("createNotification", title, options);
         }
 
         /// <inheritdoc/>

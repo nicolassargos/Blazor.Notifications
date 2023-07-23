@@ -70,7 +70,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-         isSupportedByBrowser = await NotificationService.IsSupportedByBrowserAsync();
+        isSupportedByBrowser = await NotificationService.IsSupportedByBrowserAsync();
     }
 
     private async Task CreateNotifcationAsync()
@@ -86,7 +86,8 @@
             Body = body,
             Icon = icon,
             Renotify = true, // By default a notification is not overwritten, so there can only be one.
-            Actions = actions
+            Actions = actions,
+            Data = new { redirectionUri = "https://localhost:44359/" } as object
         };
 
         await NotificationService.CreateAsync(title, options);
