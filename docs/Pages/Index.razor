@@ -60,7 +60,7 @@
 </div>
 
 
-@functions{
+@code{
     private bool isSupportedByBrowser;
     private string title = "My Dummy Title";
     private string body = "Lorem ipsum dolor sit ...";
@@ -70,7 +70,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        isSupportedByBrowser = await NotificationService.IsSupportedByBrowserAsync();
+         isSupportedByBrowser = await NotificationService.IsSupportedByBrowserAsync();
     }
 
     private async Task CreateNotifcationAsync()
