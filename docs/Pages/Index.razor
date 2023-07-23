@@ -77,8 +77,8 @@
     {
         var actions = new NotificationAction[]
         {
-            new NotificationAction { Action = "act1", Title = actionTitle1 },
-            new NotificationAction { Action = "act2", Title = actionTitle2 },
+            new NotificationAction { Action = NotificationActionEnum.View, Title = "View details" },
+            new NotificationAction { Action = NotificationActionEnum.Close, Title = "Dismiss" },
         };
 
         var options = new NotificationOptions
@@ -87,11 +87,12 @@
             Icon = icon,
             Renotify = true, // By default a notification is not overwritten, so there can only be one.
             Actions = actions,
-            Data = new { redirectionUri = "https://localhost:44359/" } as object
+            Data = new { redirectionUrl = "https://www.google.be/" } as object
         };
 
         await NotificationService.CreateAsync(title, options);
     }
+
     private async Task RequestPermission()
     {
         await NotificationService.RequestPermissionAsync();
