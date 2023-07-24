@@ -4,6 +4,12 @@ This is the README of the original repository: [Blazor.Notifications](https://gi
 
 This fork is about adding interaction with the notification (eg react to click on buttons).
 
+## TODO
+- Create build pipeline
+- Configure package creation
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Implementation of the [Notification API](https://developer.mozilla.org/en-US/docs/Web/API/notification) in C# for [Microsoft Blazor](https://github.com/aspnet/Blazor).
 
 [![Package Version](https://img.shields.io/nuget/v/Append.Blazor.Notifications.svg)](https://www.nuget.org/packages/Append.Blazor.Notifications)
