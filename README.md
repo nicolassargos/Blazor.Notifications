@@ -84,4 +84,4 @@ Please feel free to use the component, open issues, fix bugs or provide feedback
 
 This project is created and maintained by:
 
-- [Benjamin Vertonghen](https://github.com/vertonghenb)
+- [Nicolas Sargos](https://github.com/nicolasargos)
